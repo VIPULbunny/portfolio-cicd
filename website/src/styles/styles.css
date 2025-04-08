@@ -1280,6 +1280,50 @@ section {
   }
 }
 
+#api-section {
+  padding: 60px 20px;
+  background: #3f0d56; /* Deep purple background */
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  margin: 50px auto;
+  max-width: 800px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+#api-section .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+#fetchBtn {
+  background-color: #FC6E51;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#fetchBtn:hover {
+  background-color: #e55b3d;
+}
+
+#output {
+  background-color: #4b1c69;
+  padding: 20px;
+  color: #f8f8f8;
+  font-family: 'Courier New', monospace;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 600px;
+  overflow-x: auto;
+  text-align: left;
+}
 
 
 }
