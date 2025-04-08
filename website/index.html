@@ -429,9 +429,14 @@
                                     <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
                                 </button>
                                 
-                             <h1>Get a Compliment</h1>
-                          <button onclick="getComplimentFromAPI()">Get Compliment</button>
-                          <div id="complimentText" style="margin-top: 20px; font-size: 18px;"></div>
+                             <section class="section active" id="compliments">
+  <div class="section__title">Compliment Generator (via AWS Lambda & API Gateway)</div>
+  <p>This feature fetches a compliment from a deployed Lambda function via API Gateway.</p>
+
+  <button id="fetchBtn" class="btn" type="button">Get Compliment</button>
+  <pre id="output" style="margin-top: 15px; font-size: 16px; background: #f1f1f1; padding: 10px; border-radius: 8px;"></pre>
+</section>
+
                             </div>
                         </form>
                     </div>
