@@ -1280,20 +1280,7 @@ section {
   }
 }
 
-.apibtn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  padding: 10px 20px;
-  background-color: #FC6E51;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 14px;
-  text-transform: uppercase;
-  cursor: pointer;
-  z-index: 1000;
-}
+
 
 }
 /*# sourceMappingURL=styles.css.map */
