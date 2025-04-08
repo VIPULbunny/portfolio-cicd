@@ -14,24 +14,34 @@
         document.body.classList.toggle("light-mode");
     });
 
-    // API fetch functionality
+    // Lambda API Gateway Integration
     const fetchBtn = document.getElementById("fetchBtn");
     const output = document.getElementById("output");
 
     if (fetchBtn && output) {
         fetchBtn.addEventListener("click", async () => {
-            output.textContent = "Loading...";
+            output.textContent = "Sending...";
 
             try {
-                const response = await fetch("https://j7gzscsoff.execute-api.us-east-1.amazonaws.com/");
+                const response = await fetch("https://j7gzscsoff.execute-api.us-east-1.amazonaws.com/dev", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name: "Vipul",
+                        email: "vipul@example.com",
+                        message: "Hello from portfolio site!"
+                    })
+                });
+
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
                 const data = await response.json();
-
-                // Assuming API returns: { "compliment": "You're awesome!" }
-                output.textContent = data.compliment || JSON.stringify(data, null, 2);
+                output.textContent = data.message || JSON.stringify(data, null, 2);
             } catch (error) {
                 output.textContent = `Error: ${error.message}`;
+                console.error(error);
             }
         });
     }
