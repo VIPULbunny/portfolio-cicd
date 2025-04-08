@@ -23,7 +23,7 @@
             output.textContent = "Sending...";
 
             try {
-                const response = await fetch("https://j7gzscsoff.execute-api.us-east-1.amazonaws.com/dev", {
+                const response = await fetch("https://j7gzscsoff.execute-api.us-east-1.amazonaws.com/dev/contact", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
