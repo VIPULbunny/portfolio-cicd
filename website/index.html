@@ -457,17 +457,12 @@
     <div class="theme-btn">
         <i class="fas fa-adjust"></i>
     </div>
-    <div class="section" id="contact">
-  <h2>Contact Us</h2>
-  <form id="contactForm">
-    <input type="text" id="name" name="name" placeholder="Your Name" required />
-    <input type="email" id="email" name="email" placeholder="Your Email" required />
-    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-  <p id="responseMessage"></p>
-</div>
 
+     <h1>Get a Compliment</h1>
+  <button onclick="getComplimentFromAPI()">Get Compliment</button>
+  <div id="complimentText" style="margin-top: 20px; font-size: 18px;"></div>
+
+    
     <script src="src/app.js"></script>
 </body>
 </html>
