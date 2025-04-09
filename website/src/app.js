@@ -14,16 +14,13 @@
         document.body.classList.toggle("light-mode");
     });
 
-    // Lambda API Gateway Integration with modal
+    // Lambda API Gateway Integration
     const fetchBtn = document.getElementById("fetchBtn");
-    const complimentModal = document.getElementById("complimentModal");
-    const complimentText = document.getElementById("complimentText");
-    const closeModal = document.getElementById("closeModal");
+    const output = document.getElementById("output");
 
-    if (fetchBtn && complimentModal && complimentText && closeModal) {
+    if (fetchBtn && output) {
         fetchBtn.addEventListener("click", async () => {
-            complimentText.textContent = "Loading...";
-            complimentModal.style.display = "block";
+            output.textContent = "Sending...";
 
             try {
                 const response = await fetch("https://j7gzscsoff.execute-api.us-east-1.amazonaws.com/dev/contact", {
@@ -38,23 +35,13 @@
                     })
                 });
 
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                if (!response.ok) throw new Error(HTTP error! status: ${response.status});
 
                 const data = await response.json();
-                complimentText.textContent = data.message || "You're awesome!";
+                output.textContent = data.message || JSON.stringify(data, null, 2);
             } catch (error) {
-                complimentText.textContent = `Error: ${error.message}`;
+                output.textContent = Error: ${error.message};
                 console.error(error);
-            }
-        });
-
-        closeModal.addEventListener("click", () => {
-            complimentModal.style.display = "none";
-        });
-
-        window.addEventListener("click", (e) => {
-            if (e.target === complimentModal) {
-                complimentModal.style.display = "none";
             }
         });
     }
