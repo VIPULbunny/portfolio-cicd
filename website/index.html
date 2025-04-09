@@ -428,12 +428,19 @@
                                     <span class="btn-text">Send Message</span>
                                     <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
                                 </button>
-                                <section id="api-section" class="section">
-                                   <div class="content">
-                                      <button id="fetchBtn">Get Compliment</button>
-                                          <pre id="output">Click the button to send data to Lambda</pre>
-                                            </div>
-                                  </section>
+                               <section id="api-section" class="section">
+  <div class="content">
+    <button id="fetchBtn">Get Compliment</button>
+
+    <div id="complimentModal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <span class="close-btn" id="closeModal">&times;</span>
+        <p id="complimentText">Loading...</p>
+      </div>
+    </div>
+  </div>
+</section>
+
                             </div>
                         </form>
                     </div>
