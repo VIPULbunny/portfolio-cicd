@@ -19,7 +19,6 @@
     const output = document.getElementById("output");
     const closeBtn = document.getElementById("closeBtn");
 
-
     if (fetchBtn && output) {
         fetchBtn.addEventListener("click", async () => {
             output.textContent = "Sending...";
@@ -38,23 +37,24 @@
                     })
                 });
 
-                if (!response.ok) throw new Error(HTTP error! status: ${response.status});
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
                 const data = await response.json();
                 output.textContent = data.message || JSON.stringify(data, null, 2);
-                 closeBtn.style.display = "inline-block"; // Show close button
+                closeBtn.style.display = "inline-block"; // Show close button
             } catch (error) {
-                output.textContent = Error: ${error.message};
-                 closeBtn.style.display = "inline-block"; // Show close button on error too
+                output.textContent = `Error: ${error.message}`;
+                closeBtn.style.display = "inline-block"; // Show close button on error too
                 console.error(error);
             }
         });
     }
+
     if (closeBtn && output) {
-    closeBtn.addEventListener("click", () => {
-        output.textContent = "Click the button to send data to Lambda";
-        closeBtn.style.display = "none";
-    });
-}
+        closeBtn.addEventListener("click", () => {
+            output.textContent = "Click the button to send data to Lambda";
+            closeBtn.style.display = "none";
+        });
+    }
 
 })();
