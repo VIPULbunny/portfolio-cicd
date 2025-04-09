@@ -14,13 +14,16 @@
         document.body.classList.toggle("light-mode");
     });
 
-    // Lambda API Gateway Integration
+    // Lambda API Gateway Integration with modal
     const fetchBtn = document.getElementById("fetchBtn");
-    const output = document.getElementById("output");
+    const complimentModal = document.getElementById("complimentModal");
+    const complimentText = document.getElementById("complimentText");
+    const closeModal = document.getElementById("closeModal");
 
-    if (fetchBtn && output) {
+    if (fetchBtn && complimentModal && complimentText && closeModal) {
         fetchBtn.addEventListener("click", async () => {
-            output.textContent = "Sending...";
+            complimentText.textContent = "Loading...";
+            complimentModal.style.display = "block";
 
             try {
                 const response = await fetch("https://j7gzscsoff.execute-api.us-east-1.amazonaws.com/dev/contact", {
@@ -38,10 +41,20 @@
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
                 const data = await response.json();
-                output.textContent = data.message || JSON.stringify(data, null, 2);
+                complimentText.textContent = data.message || "You're awesome!";
             } catch (error) {
-                output.textContent = `Error: ${error.message}`;
+                complimentText.textContent = `Error: ${error.message}`;
                 console.error(error);
+            }
+        });
+
+        closeModal.addEventListener("click", () => {
+            complimentModal.style.display = "none";
+        });
+
+        window.addEventListener("click", (e) => {
+            if (e.target === complimentModal) {
+                complimentModal.style.display = "none";
             }
         });
     }
